@@ -1,2 +1,5 @@
-# Uniswap-V2
-# Uniswap-V2
+Uniswap does not directly use ERC4626 or ERC3156. However, it is helpful to be familiar with these standards as Uniswap utilizes similar concepts. ERC4626 is a tokenized vault standard that allows users to deposit assets into a vault and receive ERC20 tokens representing shares in the vault. These ERC20 tokens are commonly referred to as "shares" of the underlying asset. An ERC4626 contract is itself an ERC20 token. When constructing an ERC4626 vault, the contract takes an argument that specifies the ERC20 token that users will be depositing into the vault. This token is the underlying asset, while the shares are the ERC20 tokens that represent the deposit. To understand which asset the ERC4626 vault holds and how much of it the contract owns, there are two essential Solidity functions in the ERC4626 specification:
+
+```function asset() public view returns (address)```: This function returns the address of the underlying token held by the vault.
+
+```function totalAssets() public view returns (uint256)```: This function returns the total amount of the underlying asset (in ERC20 token units) held by the vault.
